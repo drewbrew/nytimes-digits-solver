@@ -16,6 +16,12 @@ This is a simple queue-based approach to solving the [Digits](https://nytimes.co
 
 ```
 $ python3 solver.py 5 11 19 20 23 25 -t 413
+Found a solution in 4 steps. Run with --spoil to see the details.
+```
+
+### Spoiling the whole solution
+```
+$ python3 solver.py 5 11 19 20 23 25 -t 413 --spoil
 Found a solution in 4 steps:
 20 ➖ 11 🟰 9
 23 ➕ 25 🟰 48

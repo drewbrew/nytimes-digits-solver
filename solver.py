@@ -98,6 +98,11 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("-t", "--target", type=int, required=True)
     parser.add_argument("board", nargs=6, type=int)
+    parser.add_argument(
+        "--spoil",
+        action="store_true",
+        help="Show the detailed steps for the solution",
+    )
     return parser.parse_args()
 
 
@@ -105,5 +110,9 @@ if __name__ == "__main__":
     args = parse_args()
 
     result = run_board(args.board, args.target)
-    print(f"Found a solution in {len(result)} steps:")
-    print("\n".join(result))
+    print(
+        f"Found a solution in {len(result)} steps"
+        f"{':' if args.spoil else '. Run with --spoil to see details.'}"
+    )
+    if args.spoil:
+        print("\n".join(result))
